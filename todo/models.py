@@ -33,6 +33,7 @@ class CustomAccountManager(BaseUserManager):
         user.save()
         return user
 
+
 class Newuser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(('email address'), unique=True)
     user_name = models.CharField(max_length=150, unique=True)
@@ -54,6 +55,7 @@ class Newuser(AbstractBaseUser, PermissionsMixin):
 class Todo(models.Model):
     title = models.CharField(max_length=100)
     datetime = models.DateTimeField()
+    car_type = models.CharField(max_length=150, default='')
     memo = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     datecompleted = models.DateTimeField(null=True, blank=True)

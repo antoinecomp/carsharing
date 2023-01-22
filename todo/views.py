@@ -22,9 +22,6 @@ def signupuser(request):
         if request.POST['password1'] == request.POST['password2']:
             try:
                 db = get_user_model()
-                print()
-                print("request: ", request.POST.values())
-                print()
                 user = db.objects.create_user(request.POST['email'], request.POST['username'], 
                                             request.POST['firstname'], request.POST['company'], request.POST['mobile_number'], 
                                             password=request.POST['password1'])
@@ -42,7 +39,6 @@ def loginuser(request):
         return render(request, 'todo/loginuser.html', {'form':AuthenticationForm()})
     else:
         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
-        print("in login: ", request.POST['username'], request.POST['password'])
         if user is None:
             return render(request, 'todo/loginuser.html', {'form':AuthenticationForm(), 'error':'Username and password did not match'})
         else:
@@ -62,6 +58,7 @@ def createtodo(request):
     else:
         try:
             form = TodoForm(request.POST)
+            print(request.POST['car_type'], request.POST['title'])
             newtodo = form.save(commit=False)
             newtodo.user = request.user
             newtodo.save()
