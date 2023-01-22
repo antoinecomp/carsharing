@@ -1,7 +1,10 @@
 from django.contrib import admin
-from .models import Todo
+from .models import Todo, Newuser
+# from .models import Account
+# from django.contrib.auth.models import User
 
-class TodoAdmin(admin.ModelAdmin):
-    readonly_fields = ('created',)
+# class TodoAdmin(admin.ModelAdmin):
+#     readonly_fields = ('created',)
 
-admin.site.register(Todo, TodoAdmin)
+# admin.site.register(Todo, TodoAdmin)
+admin.site.register(Newuser)

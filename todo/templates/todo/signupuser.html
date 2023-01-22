@@ -3,7 +3,7 @@
 {% block content %}
     <div class="row justify-content-center mt-5">
         <div class="col-md-5">
-            <h2>Sign Up</h2>
+            <h2>Inscription</h2>
         </div>
     </div>
     <div class="row justify-content-center mt-5">
@@ -16,9 +16,41 @@
             <form method="POST">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="username">Pseudo</label>
                     <input type="text" name="username" class="form-control" id="username" aria-describedby="usernameHelp">
-                    <small id="usernameHelp" class="form-text text-muted">Your username must be unique. We'll let you know if someone has taken it already.</small>
+                    <small id="usernameHelp" class="form-text text-muted">Votre pseudo doit etre unique. On vous dira si quelqu'un l'a déja pris.</small>
+                </div>
+                <div class="form-group">
+                    <label for="email">Adresse mail</label>
+                    <input type="email" name="email" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="firstname">Prénom</label>
+                    <input type="text" name="firstname" class="form-control" id="firstname">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Nom</label>
+                    <input type="text" name="lastname" class="form-control" id="lastname">
+                </div>
+                <div class="form-group">
+                    <label for="company">Compagnie</label>
+                    <select name="company" id="company" class="form-control">
+                        <option value="1">1ere</option>
+                        <option value="2">2eme</option>
+                        <option value="3">3eme</option>
+                        <option value="4">4eme</option>
+                        <option value="5">5eme</option>
+                        <option value="6">6eme</option>
+                        <option value="7">7eme</option>
+                        <option value="8">8eme</option>
+                        <option value="9">9eme</option>
+                        <option value="10">10eme</option>
+                        <option value="11">11eme</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mobile_number">Téléphone</label>
+                    <input type="tel" name="mobile_number" class="form-control" id="mobile_number" placeholder="0623456781" pattern="[0-9]{10}" required>
                 </div>
                 <div class="form-group">
                     <label for="password1">Password</label>
@@ -32,7 +64,7 @@
             </form>
             <hr>
             <div class="text-center">
-                Do you already have an account? <a href="{% url 'loginuser' %}">Login here</a>
+                Vous avez déja un compte? <a href="{% url 'loginuser' %}">Connectez-vous ici</a>
             </div>
         </div>
     </div>
