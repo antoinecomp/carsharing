@@ -123,3 +123,8 @@ STATIC_URL = '/static/'
 LOGIN_URL = '/login'
 
 AUTH_USER_MODEL = 'todo.NewUser'
+
+try:
+    from .local_settings import *
+except ImportError:
+    print("No local file, you must be in production")
